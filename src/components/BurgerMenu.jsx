@@ -1,26 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
 
-  // const navItems = [
-  //   {
-  //     title: "ORGANIZE PDF",
-  //     color: "text-red-600",
-  //     items: ["Merge PDF", "Split PDF", "Remove pages", "Extract pages", "Organize PDF", "Scan to PDF"],
-  //   },
-  //   {
-  //     title: "OPTIMIZE PDF",
-  //     color: "text-green-600",
-  //     items: ["Compress PDF", "Repair PDF", "OCR PDF"],
-  //   },
-  //   {
-  //     title: "CONVERT TO PDF",
-  //     color: "text-blue-600",
-  //     items: ["JPG to PDF", "WORD to PDF", "POWERPOINT to PDF", "EXCEL to PDF", "HTML to PDF"],
-  //   },
-  // ];
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    // Cleanup on unmount (optional, good practice)
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [open]);
+
   const allTools = {
     "ORGANIZE PDF": [
       {
@@ -200,7 +196,7 @@ const BurgerMenu = () => {
             <X size={32} />
           </div>
           {Object.entries(allTools).map(([section, items]) => (
-            <div key={section } className= 'mb-6'>
+            <div key={section} className='mb-6'>
               <h4 className='font-bold text-[#707078] mb-3 text-sm uppercase tracking-wide'>
                 {section}
               </h4>
