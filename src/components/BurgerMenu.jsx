@@ -184,7 +184,7 @@ const BurgerMenu = () => {
       </button>
 
       <div
-        className={`fixed top-0 right-0 w-full h-full bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+        className={`fixed mobile__nav top-0 right-0 w-full h-full bg-white shadow-lg z-50 transform transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >

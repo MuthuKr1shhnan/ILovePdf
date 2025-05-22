@@ -822,3 +822,23 @@ body {
     border-radius: 8px;
     white-space: nowrap;
 }
+.mobile__nav{
+    ::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+ 
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+}
