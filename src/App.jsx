@@ -1,13 +1,18 @@
 import Nav from "./components/Nav";
+
 import { LandingPage } from "./Pages/LandingPage";
-import UploadPage from "./Pages/UploadPage";
+import { Routes, Route } from "react-router-dom";
+import UploadJpgToPdfPage from "./Pages/UploadJpgToPdfPage";
 
 function App() {
   return (
     <>
       <Nav />
-      <LandingPage/>
-      <UploadPage/>
+
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/jpg-to-pdf' element={<UploadJpgToPdfPage />} />
+      </Routes>
     </>
   );
 }

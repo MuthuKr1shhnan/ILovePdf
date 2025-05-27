@@ -1,5 +1,4 @@
-import { ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 import * as HoverCard from "@radix-ui/react-hover-card";
 
 const productsHoverItems = [
@@ -157,45 +156,47 @@ const productsHoverItems = [
       { img: <i className='ico ico--about'></i>, name: "About us" },
     ],
   },
- 
- {
-  title: "",
-  items: [
-    {
-      img: <i className="ico ico--chevron-l"></i>,
-      name: "Help",
-      hoverCardContent: (
-        <div className="text-sm text-gray-700 p-3 w-60">
-          <p className="font-semibold text-black mb-1">Need Help?</p>
-          <p className="text-xs text-gray-600 mb-2">Visit our support center for FAQs and assistance.</p>
-          <a
-            href="https://www.ilovepdf.com/help"
-            className="text-red-600 text-xs underline hover:text-red-800 transition"
-          >
-            Go to Support Center
-          </a>
-        </div>
-      ),
-    },
-    {
-      img: <i className="ico ico--chevron-l"></i>,
-      name: "Language",
-    },
-  ],
-}
+
+  {
+    title: "",
+    items: [
+      {
+        img: <i className='ico ico--chevron-l'></i>,
+        name: "Help",
+        hoverCardContent: (
+          <div className='text-sm text-gray-700 p-3 w-60'>
+            <p className='font-semibold text-black mb-1'>Need Help?</p>
+            <p className='text-xs text-gray-600 mb-2'>
+              Visit our support center for FAQs and assistance.
+            </p>
+            <a
+              href='https://www.ilovepdf.com/help'
+              className='text-red-600 text-xs underline hover:text-red-800 transition'
+            >
+              Go to Support Center
+            </a>
+          </div>
+        ),
+      },
+      {
+        img: <i className='ico ico--chevron-l'></i>,
+        name: "Language",
+      },
+    ],
+  },
 ];
 
 export default function Products() {
   return (
     <HoverCard.Root openDelay={0} closeDelay={100}>
       <HoverCard.Trigger asChild>
-        <button className='flex items-center gap-1 hover:text-red-600 transition-colors'>
-          <div className='grid grid-cols-3 gap-0.5'>
+       <div className='flex items-center gap-1 hover:text-red-600 transition-colors'>  <div className='grid grid-cols-3 gap-0.5'>
             {[...Array(9)].map((_, i) => (
               <div key={i} className='w-1.5 h-1.5 bg-black rounded-full' />
             ))}
-          </div>
-        </button>
+          </div></div>
+        
+      
       </HoverCard.Trigger>
 
       <HoverCard.Content
@@ -284,8 +285,8 @@ export default function Products() {
               ))}
             </ul>
           </div>
-          <div className="w-full h-[1px] bg-[#e5e7eb]"/>
-          <div className="mt-[70px] flex flex-col">
+          <div className='w-full h-[1px] bg-[#e5e7eb]' />
+          <div className='mt-[70px] flex flex-col'>
             <ul className='space-y-3'>
               <ul className='space-y-3'>
                 {productsHoverItems[4].items.map((item, index) => {
@@ -303,11 +304,10 @@ export default function Products() {
                         </HoverCard.Trigger>
                         <HoverCard.Content
                           sideOffset={30}
-                          side="left"
+                          side='left'
                           className='z-50 rounded-md bg-white shadow-md p-4'
                         >
                           {item.hoverCardContent}
-                         
                         </HoverCard.Content>
                       </HoverCard.Root>
                     );
