@@ -1297,3 +1297,11 @@ a {
         padding: 0 90px 0 0;
     }
 }
+.dropdown:hover{
+    .dropdown__text{
+        color: red;
+    }
+}
+.group:hover{
+    color: red;
+}

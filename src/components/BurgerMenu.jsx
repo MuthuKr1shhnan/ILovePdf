@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
 
@@ -203,12 +203,17 @@ const BurgerMenu = () => {
               <ul className='space-y-3'>
                 {items.map((item) => (
                   <li key={item.to}>
-                    <Link
+                    <NavLink
                       to={item.to}
-                      className='text-[12px] hover:underline flex items-center gap-1' onClick={()=> setOpen(false)}
+                      onClick={()=> setOpen(false)}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-red-500 hover:underline text-sm flex items-center gap-1"
+                          : "text-gray-700 hover:underline text-sm flex items-center gap-1"
+                      }
                     >
                       {item.img} {item.label}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>

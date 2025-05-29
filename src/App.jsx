@@ -2,7 +2,9 @@ import Nav from "./components/Nav";
 
 import { LandingPage } from "./Pages/LandingPage";
 import { Routes, Route } from "react-router-dom";
-import UploadJpgToPdfPage from "./Pages/UploadJpgToPdfPage";
+
+import { JpgToPdf, MergePdf } from "./Pages/Conversions";
+import UnderConstruction from "./Pages/Underconstruction";
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
 
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/jpg-to-pdf' element={<UploadJpgToPdfPage />} />
+        <Route path='/merge-pdf' element={<MergePdf />} />
+        <Route path='/jpg-to-pdf' element={<JpgToPdf />} />
+        <Route path="*" element={<UnderConstruction/>}/>
       </Routes>
     </>
   );
