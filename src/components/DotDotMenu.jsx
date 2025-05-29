@@ -1,5 +1,5 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
-import MobileDotDotMenu from "./MobileDotDotMenu";
+import MobileDotDotMenu from "./MobileDotDotMenu.jsx";
 
 const productsHoverItems = [
   {

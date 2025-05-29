@@ -2,101 +2,88 @@ import { useState, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-const MobileDotMenu = () => {
+const MobileDotDotMenu = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const menuSections = [
+  const productsHoverItems = [
     {
-      title: "OTHER PRODUCTS",
+      title: "Other Products",
       items: [
         {
-          icon: <i className="ico ico--iloveimg text-red-600 text-xl" />,
-          title: "iLoveIMG",
+          img: <i className='ico ico--iloveimg text-xl text-red-600' />,
+          name: "iLoveIMG",
           description: "Effortless image editing",
           href: "https://www.iloveimg.com"
         },
         {
-          icon: <i className="ico ico--ilovesign text-red-600 text-xl" />,
-          title: "iLoveSign",
+          img: <i className='ico ico--ilovesign text-xl text-red-600' />,
+          name: "iLoveSign",
           description: "e-Signing made simple",
           href: "https://www.ilovesign.com"
         },
         {
-          icon: <i className="ico ico--iloveapi text-red-600 text-xl" />,
-          title: "iLoveAPI",
+          img: <i className='ico ico--iloveapi text-xl text-red-600' />,
+          name: "iLoveAPI",
           description: "Document automation for developers",
           href: "https://www.iloveapi.com"
         },
         {
-          icon: <i className="ico ico--integrations text-red-600 text-xl" />,
-          title: "Integrations",
+          img: <i className='ico ico--integrations text-xl text-red-600' />,
+          name: "Integrations",
           description: "Zapier, Make, Wordpress...",
           href: "https://www.iloveapi.com/integrations"
         }
       ]
     },
     {
-      title: "SOLUTIONS",
+      title: "Solutions",
       items: [
         {
-          icon: <i className="ico ico--business text-red-600 text-xl" />,
-          title: "Business",
+          name: "Business",
           description: "Streamlined PDF editing and workflows for business teams",
+          icon: <i className='ico ico--business text-xl text-red-600' />,
           href: "https://www.ilovepdf.com/business"
         }
       ]
     },
     {
-      title: "APPLICATIONS",
+      title: "Applications",
       items: [
         {
-          icon: <i className="ico ico--desktop text-red-600 text-xl" />,
-          title: "Desktop App",
+          name: "Desktop App",
           description: "Available for Mac and Windows",
+          icon: <i className='ico ico--desktop text-xl text-red-600' />,
           href: "https://www.ilovepdf.com/desktop"
         },
         {
-          icon: <i className="ico ico--mobile text-red-600 text-xl" />,
-          title: "Mobile App",
+          name: "Mobile App",
           description: "Available for iOS and Android",
+          icon: <i className='ico ico--mobile text-xl text-red-600' />,
           href: "https://www.ilovepdf.com/mobile"
         }
       ]
     },
     {
+      title: "Resources",
       items: [
-        {
-          icon: <i className="ico ico--pricing text-gray-500 text-xl" />,
-          title: "Pricing",
-          href: "https://www.ilovepdf.com/pricing"
-        },
-        {
-          icon: <i className="ico ico--security text-gray-500 text-xl" />,
-          title: "Security",
-          href: "https://www.ilovepdf.com/security"
-        },
-        {
-          icon: <i className="ico ico--features text-gray-500 text-xl" />,
-          title: "Features",
-          href: "https://www.ilovepdf.com/features"
-        },
-        {
-          icon: <i className="ico ico--about text-gray-500 text-xl" />,
-          title: "About us",
-          href: "https://www.ilovepdf.com/about"
-        }
+        { name: "Pricing", icon: <i className='ico ico--pricing text-xl text-gray-600' />, href: "https://www.ilovepdf.com/pricing" },
+        { name: "Security", icon: <i className='ico ico--security text-xl text-gray-600' />, href: "https://www.ilovepdf.com/security" },
+        { name: "Features", icon: <i className='ico ico--features text-xl text-gray-600' />, href: "https://www.ilovepdf.com/features" },
+        { name: "About us", icon: <i className='ico ico--about text-xl text-gray-600' />, href: "https://www.ilovepdf.com/about" }
       ]
     },
     {
+      title: "Support",
       items: [
-        {
-          icon: <i className="ico ico--help text-gray-500 text-xl" />,
-          title: "Help",
-          href: "https://www.ilovepdf.com/help"
+        { 
+          name: "Help Center", 
+          icon: <i className='ico ico--chevron-l text-xl text-gray-600' />,
+          href: "https://www.ilovepdf.com/help",
+          description: "FAQs and assistance"
         },
-        {
-          icon: <i className="ico ico--language text-gray-500 text-xl" />,
-          title: "Language",
+        { 
+          name: "Language", 
+          icon: <i className='ico ico--chevron-l text-xl text-gray-600' />,
           href: "https://www.ilovepdf.com/language"
         }
       ]
@@ -105,22 +92,26 @@ const MobileDotMenu = () => {
 
   return (
     <div className="lg:hidden">
-      {/* 3-dot menu button */}
+      {/* Mobile menu button */}
       <button
+        type="button"
+        className=" rounded-md text-gray-700 hover:text-red-600  focus:outline-none  focus:ring-red-500"
         onClick={() => setMobileMenuOpen(true)}
-        className="p-2 -mr-2 rounded-md hover:bg-gray-100 focus:outline-none"
         aria-label="Open menu"
       >
-        <div className="grid grid-cols-3 gap-1">
-          {[...Array(9)].map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 bg-gray-700 rounded-full" />
-          ))}
-        </div>
+          <div className='flex items-center gap-1 hover:text-red-600 transition-colors'>
+              {" "}
+             <div className='grid grid-cols-3 gap-1 '>
+                {[...Array(9)].map((_, i) => (
+                  <div key={i} className='w-1.5 h-1.5 bg-black rounded-full' />
+                ))}
+              </div>
+            </div>
       </button>
 
-      {/* Mobile menu with transitions */}
+      {/* Mobile menu transition */}
       <Transition show={mobileMenuOpen} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 z-50 overflow-y-auto" onClose={setMobileMenuOpen}>
+        <Dialog as="div" className="relative z-50 lg:hidden" onClose={setMobileMenuOpen}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -130,7 +121,7 @@ const MobileDotMenu = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black/30" />
+            <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true" />
           </Transition.Child>
 
           <Transition.Child
@@ -142,43 +133,42 @@ const MobileDotMenu = () => {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl">
-              {/* Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-                <Dialog.Title className="text-lg font-semibold text-gray-900">
-                  Menu
-                </Dialog.Title>
+            <Dialog.Panel className="fixed inset-y-0 right-0 w-full max-w-sm overflow-y-auto bg-white shadow-xl">
+              <div className="flex items-center justify-between px-6 pt-6">
+                <h2 className="text-xl font-bold text-gray-900">iLovePDF Menu</h2>
                 <button
+                  type="button"
+                  className="-mr-2 rounded-md p-2 text-gray-700 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 -mr-2 rounded-md text-gray-700 hover:text-red-600 focus:outline-none"
                   aria-label="Close menu"
                 >
-                  <XMarkIcon className="h-6 w-6" />
+                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
 
-              {/* Menu content */}
-              <div className="px-6 py-4 overflow-y-auto h-[calc(100vh-64px)]">
-                {menuSections.map((section, sectionIdx) => (
-                  <div key={sectionIdx} className={sectionIdx > 0 ? "mt-8" : ""}>
+              <div className="mt-6 px-6 space-y-8 divide-y divide-gray-200/50">
+                {productsHoverItems.map((section, sectionIdx) => (
+                  <div key={sectionIdx} className="pt-8 first:pt-0">
                     {section.title && (
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-[#707078] mb-3">
+                      <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
                         {section.title}
                       </h3>
                     )}
-                    <ul className="space-y-2">
+                    <ul className="space-y-4">
                       {section.items.map((item, itemIdx) => (
                         <li key={itemIdx}>
                           <a
                             href={item.href}
-                            className="flex items-center p-3 -mx-3 rounded-lg hover:bg-gray-50 group"
+                            className="group flex items-start p-3 -mx-3 rounded-lg hover:bg-gray-50 transition-colors"
                           >
-                            <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center mr-3">
-                              {item.icon}
-                            </div>
+                            {item.icon || item.img ? (
+                              <div className="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 group-hover:bg-red-50 group-hover:text-red-600 mr-4">
+                                {item.icon || item.img}
+                              </div>
+                            ) : null}
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-gray-900 group-hover:text-red-600">
-                                {item.title}
+                              <p className="text-sm font-medium text-gray-900 truncate">
+                                {item.name}
                               </p>
                               {item.description && (
                                 <p className="text-xs text-gray-500 mt-1">
@@ -194,7 +184,16 @@ const MobileDotMenu = () => {
                   </div>
                 ))}
               </div>
-            </div>
+
+              <div className="px-6 py-8 border-t border-gray-200/50">
+                <a
+                  href="https://www.ilovepdf.com"
+                  className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700"
+                >
+                  Go to iLovePDF
+                </a>
+              </div>
+            </Dialog.Panel>
           </Transition.Child>
         </Dialog>
       </Transition>
@@ -202,4 +201,4 @@ const MobileDotMenu = () => {
   );
 };
 
-export default MobileDotMenu;
+export default MobileDotDotMenu;
