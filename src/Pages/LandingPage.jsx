@@ -287,12 +287,12 @@ export const LandingPage = () => {
         </div>
       </div>
       {/* second section in landing page */}
-      <div className='block block--white'>
-        <div className='block__container'>
-          <div className='block__header'>
+      <div className='premiumsection premiumsection--white'>
+        <div className='premiumsection__container'>
+          <div className='premiumsection__header'>
             <div className='title1'>Looking for another solution?</div>
           </div>
-          <div className='block__body'>
+          <div className='premiumsection__body'>
             <div className='row justify-content-center'>
               <div className='col-md-4'>
                 <div className='infounit infounit--fill'>
@@ -332,9 +332,9 @@ export const LandingPage = () => {
         </div>
       </div>
       {/* third section in landing page */}
-      <div className='block block--grey-admin'>
-        <div className='block__container'>
-          <div className='block__header'>
+      <div className='premiumsection premiumsection--grey-admin'>
+        <div className='premiumsection__container'>
+          <div className='premiumsection__header'>
             <div className='title1 text-center'>
               The PDF software trusted by millions of users
             </div>
@@ -344,7 +344,7 @@ export const LandingPage = () => {
               documents while keeping your data safe and secure.
             </div>
           </div>
-          <div className='block__body'>
+          <div className='premiumsection__body'>
             <div className='new-premium__logos'>
               <img
                 src='/iso.svg'
@@ -369,8 +369,8 @@ export const LandingPage = () => {
           </div>
         </div>
       </div>
-      <div className='block block--black '>
-        <div className='block__container flex justi'>
+      <div className='premiumsection premiumsection--black '>
+        <div className='premiumsection__container flex justi'>
           <div className='row align-items-center justify-content-center d-lg-flex'>
             <div className='col-lg-7 col-md-12 section__item'>
               <div className='title1'>Get more with Premium</div>

@@ -1,6 +1,6 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
 import MobileDotDotMenu from "./MobileDotDotMenu.jsx";
-
+import { PiDotsNineBold } from "react-icons/pi";
 const productsHoverItems = [
   {
     title: "Other Products",
@@ -192,13 +192,8 @@ export default function Products() {
       <div className='hidden md:block'>
         <HoverCard.Root openDelay={0} closeDelay={100}>
           <HoverCard.Trigger asChild>
-            <div className='flex items-center gap-1 hover:text-red-600 transition-colors'>
-              {" "}
-             <div className='grid grid-cols-3 gap-1 '>
-                {[...Array(9)].map((_, i) => (
-                  <div key={i} className='w-1.5 h-1.5 bg-black rounded-full' />
-                ))}
-              </div>
+            <div className='flex items-center '>
+             <PiDotsNineBold size={36} />
             </div>
           </HoverCard.Trigger>
           <HoverCard.Content

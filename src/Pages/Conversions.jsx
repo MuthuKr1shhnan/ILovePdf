@@ -116,4 +116,56 @@ export const MergePdf = () => {
         onError={(error) => console.error('Error:', error)}
       />
     </div>
-  );}
+  );
+};
+
+
+  export const SplitPdf = () => {
+  const convertJpgToPdf = async (formData) => {
+    try {
+      // 1. Send files to backend API
+      const response = await fetch('https://your-backend-api.com/jpg-to-pdf', {
+        method: 'POST',
+        body: formData,
+        // Don't set Content-Type header - let the browser set it with boundary
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+
+      // 2. Get the processed PDF from backend
+      const pdfBlob = await response.blob();
+      
+      // 3. Create downloadable URL
+      const pdfUrl = URL.createObjectURL(pdfBlob);
+
+      return {
+        fileUrl: pdfUrl,
+        fileName: "converted.pdf",
+      };
+    } catch (error) {
+      console.error('Conversion error:', error);
+      }
+  };
+
+  return (
+    <div>
+      <FileConverter
+        title='Split PDF'
+        subtitle='Split a PDF into Multiple PDFs'
+        acceptedFileTypes='application/pdf'
+        buttonText='Select PDF Files'
+        convertButtonText='Split PDF'
+        conversionApi={convertJpgToPdf}
+        onFileSelect={(files) => console.log("Selected files:", files)}
+        onConversionStart={() => console.log("Conversion started")}
+        onConversionComplete={(result) => {
+          console.log("Conversion complete:", result);
+          // You might want to automatically trigger download here
+        }}
+        onError={(error) => console.error("Error:", error)}
+      />
+    </div>
+  );
+};

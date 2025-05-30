@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { X, Menu } from "lucide-react";
+// import { X, Menu } from "lucide-react";
+import { FiX, FiMenu } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
@@ -180,7 +181,8 @@ const BurgerMenu = () => {
   return (
     <>
       <button onClick={() => setOpen(!open)} className='p-2 text-gray-800 '>
-        <Menu size={32} />
+        {/* <Menu size={32} /> */}
+        <FiMenu size={32} />
       </button>
 
       <div
@@ -193,7 +195,8 @@ const BurgerMenu = () => {
             className=' bg-white h-auto p-4 flex w-full justify-end  sticky top-0 right-5'
             onClick={() => setOpen(false)}
           >
-            <X size={32} />
+            {/* <X size={32} /> */}
+            <FiX size={32} />
           </div>
           {Object.entries(allTools).map(([section, items]) => (
             <div key={section} className='mb-6'>

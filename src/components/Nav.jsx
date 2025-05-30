@@ -1,10 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+
 import * as HoverCard from "@radix-ui/react-hover-card";
-import Products from "./DotDotMenu.jsx";
-import { Logo } from "../logo/logo";
+import DotDotMenu from "./DotDotMenu.jsx";
+import { Logo } from "../svgassets/logo/logo.jsx";
 import { useState, useEffect } from "react";
 import BurgerMenu from "../components/BurgerMenu.jsx";
+import { GoTriangleDown } from "react-icons/go";
 
 const dropdownItems = {
   convert: {
@@ -227,13 +228,21 @@ const allTools = {
 
 export default function Nav() {
   const [mobileNav, setMobileNav] = useState(false);
+  const [allMenuMobileNav, setAllMenuMobileNav] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth > 850 && window.innerWidth <1000) {
+        setAllMenuMobileNav(true);
         setMobileNav(true);
+      } else if (window.innerWidth < 850) {
+        setMobileNav(true);
+      } else if (window.innerWidth > 1100) {
+        setAllMenuMobileNav(false);
+        setMobileNav(false)
       } else {
         setMobileNav(false);
+        setAllMenuMobileNav(false);
       }
     };
 
@@ -247,19 +256,19 @@ export default function Nav() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <nav className='w-full fixed top-0 shadow-md px-8 py-2 flex items-center justify-between bg-white z-50 '>
+    <nav className='w-full fixed top-0 shadow-md nav  px-8 py-4 flex items-center justify-between bg-white z-50 '>
       <div className='flex items-center gap-8'>
         {!mobileNav ? (
-          <div className='flex gap-6 items-center'>
-            <Link to='/' className='flex items-center gap-1 font-bold text-xl'>
+          <div className={`flex ${window.innerWidth<1100? 'gap-8':'gap-16'} items-center` }>
+            <Link to='/'>
               <Logo />
             </Link>
             <NavLink
               to='/merge-pdf'
               className={({ isActive }) =>
                 isActive
-                  ? "text-red-500 hover:text-red-500"
-                  : "text-gray-700  hover:text-red-500"
+                  ? "text-red-500 nav__font  hover:text-[#e5322d]"
+                  : "text-[#161616] nav__font  hover:text-[#e5322d]"
               }
             >
               MERGE PDF
@@ -268,8 +277,8 @@ export default function Nav() {
               to='/split-pdf'
               className={({ isActive }) =>
                 isActive
-                  ? "text-red-500  hover:text-red-500"
-                  : "text-gray-700  hover:text-red-500"
+                  ? "text-[#e5322d]   nav__font  hover:text-[#e5322d]"
+                  : "text-[#161616]   nav__font  hover:text-[#e5322d]"
               }
             >
               SPLIT PDF
@@ -278,8 +287,8 @@ export default function Nav() {
               to='/compress-pdf'
               className={({ isActive }) =>
                 isActive
-                  ? "text-red-500  hover:text-red-500 "
-                  : "text-gray-700  hover:text-red-500"
+                  ? "text-red-500   nav__font  hover:text-[#e5322d] "
+                  : "text-[#161616]   nav__font  hover:text-[#e5322d]"
               }
             >
               COMPRESS PDF
@@ -288,11 +297,11 @@ export default function Nav() {
             {/* Convert PDF HoverCard */}
             <HoverCard.Root openDelay={0} closeDelay={100}>
               <HoverCard.Trigger asChild>
-                <button className='flex items-center gap-1 dropdown__text group'>
-                  <span className='group-hover:text-red-500 group-data-[state=open]:text-red-500'>
+                <button className='flex items-center text-[#161616] gap-1 dropdown__text group'>
+                  <span className='group-hover:text-[#e5322d] nav__font  group-data-[state=open]:text-[#e5322d]'>
                     CONVERT PDF
                   </span>
-                  <ChevronDown className='w-4 h-4 group-hover:text-red-500 group-data-[state=open]:text-red-500' />
+                  <GoTriangleDown className='w-4 h-4 group-hover:text-[#e5322d] group-data-[state=open]:text-[#e5322d]' />
                 </button>
               </HoverCard.Trigger>
 
@@ -313,7 +322,7 @@ export default function Nav() {
                           to={item.to}
                           className={({ isActive }) =>
                             isActive
-                              ? "text-red-500 hover:underline text-sm flex items-center gap-1"
+                              ? "text-[#e5322d] hover:underline text-sm flex items-center gap-1"
                               : "text-gray-700 hover:underline text-sm flex items-center gap-1"
                           }
                         >
@@ -336,7 +345,7 @@ export default function Nav() {
                             to={item.to}
                             className={({ isActive }) =>
                               isActive
-                                ? "text-red-500 hover:underline text-sm flex items-center gap-1"
+                                ? "text-[#e5322d] hover:underline text-sm flex items-center gap-1"
                                 : "text-gray-700 hover:underline text-sm flex items-center gap-1"
                             }
                           >
@@ -351,46 +360,46 @@ export default function Nav() {
             </HoverCard.Root>
 
             {/* All PDF Tools HoverCard */}
-           <HoverCard.Root openDelay={0} closeDelay={100}>
-  <HoverCard.Trigger asChild>
-    <button className='flex items-center gap-1 text-gray-700 group'>
-      <span className='group-hover:text-red-500 group-data-[state=open]:text-red-500'>
-        ALL PDF TOOLS
-      </span>
-      <ChevronDown className='w-4 h-4 group-hover:text-red-500 group-data-[state=open]:text-red-500' />
-    </button>
-  </HoverCard.Trigger>
+            <HoverCard.Root openDelay={0} closeDelay={100}>
+              <HoverCard.Trigger asChild>
+                <button className='flex items-center gap-1  text-[#161616] group'>
+                  <span className='group-hover:text-[#e5322d] nav__font  group-data-[state=open]:text-[#e5322d]'>
+                    ALL PDF TOOLS
+                  </span>
+                  <GoTriangleDown className='w-4 h-4 group-hover:text-[#e5322d] group-data-[state=open]:text-red-500' />
+                </button>
+              </HoverCard.Trigger>
 
-  <HoverCard.Content
-    sideOffset={32}
-    className='z-50 bg-white shadow-xl rounded-xl p-6 grid grid-cols-6 gap-6 w-[1100px]'
-  >
-    <HoverCard.Arrow className='fill-white' />
-    {Object.entries(allTools).map(([section, items]) => (
-      <div key={section}>
-        <h4 className='font-bold text-[#707078] mb-3 text-sm uppercase tracking-wide'>
-          {section}
-        </h4>
-        <ul className='space-y-3'>
-          {items.map((item) => (
-            <li key={item.to}>
-              <NavLink
-                to={item.to}
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-red-500 hover:underline text-sm flex items-center gap-1"
-                    : "text-gray-700 hover:underline text-sm flex items-center gap-1"
-                }
+              <HoverCard.Content
+                sideOffset={32}
+                className='z-50 bg-white shadow-xl rounded-xl p-6 grid grid-cols-6 gap-6 w-[1100px]'
               >
-                {item.img} {item.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </HoverCard.Content>
-</HoverCard.Root>
+                <HoverCard.Arrow className='fill-white' />
+                {Object.entries(allTools).map(([section, items]) => (
+                  <div key={section}>
+                    <h4 className='font-bold text-[#707078] mb-3 text-sm uppercase tracking-wide'>
+                      {section}
+                    </h4>
+                    <ul className='space-y-3'>
+                      {items.map((item) => (
+                        <li key={item.to}>
+                          <NavLink
+                            to={item.to}
+                            className={({ isActive }) =>
+                              isActive
+                                ? "text-[#e5322d] hover:underline text-sm flex items-center gap-1"
+                                : "text-gray-700 hover:underline text-sm flex items-center gap-1"
+                            }
+                          >
+                            {item.img} {item.label}
+                          </NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </HoverCard.Content>
+            </HoverCard.Root>
           </div>
         ) : (
           <div className='flex gap-8'>
@@ -401,18 +410,76 @@ export default function Nav() {
           </div>
         )}
       </div>
+      {allMenuMobileNav && (
+        <div
+          className={` w-full ml-8 ${
+            allMenuMobileNav ? "flex" : " hidden"
+          } items-center justify-start`}
+        >
+          <HoverCard.Root openDelay={0} closeDelay={100}>
+            <HoverCard.Trigger asChild>
+              <button className='flex items-center gap-1 text-[#161616] group'>
+                <span className='group-hover:text-[#e5322d] nav__font  group-data-[state=open]:text-[#e5322d]'>
+                  ALL PDF TOOLS
+                </span>
+                <GoTriangleDown
+                  size={16}
+                  className='group-hover:text-[#e5322d] group-data-[state=open]:text-red-500'
+                />
+              </button>
+            </HoverCard.Trigger>
+            <HoverCard.Content
+              sideOffset={32}
+              className='z-50 bg-white shadow-xl rounded-xl p-6 grid grid-cols-6 gap-6 w-[1100px]'
+            >
+              <HoverCard.Arrow className='fill-white' />
+              {Object.entries(allTools).map(([section, items]) => (
+                <div key={section}>
+                  <h4 className='font-bold text-[#707078] mb-3 text-sm uppercase tracking-wide'>
+                    {section}
+                  </h4>
+                  <ul className='space-y-3'>
+                    {items.map((item) => (
+                      <li key={item.to}>
+                        <NavLink
+                          to={item.to}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "text-[#e5322d] hover:underline text-sm flex items-center gap-1"
+                              : "text-gray-700 hover:underline text-sm flex items-center gap-1"
+                          }
+                        >
+                          {item.img} {item.label}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </HoverCard.Content>
+          </HoverCard.Root>
+        </div>
+      )}
       <div className='flex items-center gap-4'>
-        {!mobileNav && <Link to='/login'>Login</Link>}
+        {!mobileNav && (
+          <Link
+            to='/login'
+            className='text-[14px]  hover:text-[#e5322d]'
+          >
+            {" "}
+            Login{" "}
+          </Link>
+        )}
         {!mobileNav && (
           <Link
             to='/signup'
-            className='bg-red-500 text-white px-4 py-1 rounded-md font-semibold hover:bg-red-600'
+            className='bg-[#e5322d] text-white pt-[8px] pb-[8px] pl-[12px] pr-[12px]  rounded-md  font-semibold hover:bg-[#b22a25]'
           >
             Sign up
           </Link>
         )}
         <button className='w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100'>
-          <Products />
+          <DotDotMenu />
         </button>
       </div>
     </nav>

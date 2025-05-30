@@ -2,7 +2,7 @@
 
 
 export const Logo = ()=>(<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="120px" height="48px" viewBox="0 0 300 75.51" enable-background="new 0 0 300 75.51" xml:space="preserve">
+	 width="119px" height="30px" viewBox="0 0 300 75.51" enable-background="new 0 0 300 75.51" xml:space="preserve">
 <g>
 	<path fill="#E5322D" d="M94.313,2.543c-4.785,2.309-8.374,6.2-10.995,10.612C79.104,6.071,72.405,0.326,62.259,0.326
 		c-10.15,0-22.594,8.614-22.594,23.165c0,14.732,12.293,21.715,18.382,25.658c6.508,4.211,17.613,11.867,25.27,26.036
