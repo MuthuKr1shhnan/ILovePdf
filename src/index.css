@@ -1248,6 +1248,12 @@ body {
     order: 1;
     max-width: 60vw;
 }
+.uploader__btn:hover{
+    background: #d42a2a;
+}
+.downloader__btn:hover{
+    background: #d42a2a;
+}
 @media (max-width: 768px) {
     .downloader__btn,
     .uploader__btn {

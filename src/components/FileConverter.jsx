@@ -186,7 +186,7 @@ const FileConverter = ({
           {files.length > 0 && (
             <div className='selected-files mt-4'>
   <h3 className='text-sm sm:text-base font-medium mb-2 text-green-600'>Selected Files:</h3>
-  <ul className='list-disc md:pl-4  space-y-1'>
+  <ul className='list-disc   space-y-1'>
     {files.map((file, index) => (
       <li
         key={index}
