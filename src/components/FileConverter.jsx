@@ -1,4 +1,4 @@
-import  { useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const FileConverter = ({
   title = "File Converter",
@@ -79,7 +79,7 @@ const FileConverter = ({
 
   return (
     <div className='main'>
-      <div className='tool'>
+      <div className='tool flex flex-col items-center'>
         <div className='tool__workarea flex flex-col mt-auto'>
           <div id='dropArea'></div>
           <div className='tool__header'>
@@ -104,7 +104,7 @@ const FileConverter = ({
             />
 
             <button
-              className='uploader__btn'
+              className='uploader__btn '
               id='pickfiles'
               title={buttonText}
               data-title={buttonText}
@@ -116,7 +116,7 @@ const FileConverter = ({
 
             {files.length > 0 && (
               <button
-                className='uploader__btn ml-4 bg-green-600 text-white px-3 py-1 rounded'
+                className='uploader__btn bg-green-600 text-white px-4 py-2 sm:px-3 sm:py-1 rounded text-sm sm:text-base mt-2 sm:mt-0 w-full sm:w-auto'
                 onClick={handleConvert}
                 disabled={isConverting}
               >
