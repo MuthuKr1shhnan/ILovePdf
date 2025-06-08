@@ -527,7 +527,7 @@ body {
 }
 
 .tool__header {
-    padding: 6px 24px 30px;
+    padding: 30px 24px 30px;
 }
 
 .tool__header__title {
@@ -557,7 +557,7 @@ body {
     }
 
     .tool__header {
-        padding: 6px 16px 20px;
+        padding: 36px 16px 20px;
     }
 
     .tool__header__title {

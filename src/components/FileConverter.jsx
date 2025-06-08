@@ -116,7 +116,7 @@ const FileConverter = ({
 
             {files.length > 0 && (
               <button
-                className='uploader__btn bg-green-600 text-white px-4 py-2 sm:px-3 sm:py-1 rounded text-sm sm:text-base mt-2 sm:mt-0 w-full sm:w-auto'
+                className='uploader__btn ml-8 bg-green-600 text-white px-4 py-2 sm:px-3 sm:py-1 rounded text-sm sm:text-base mt-2 sm:mt-0 w-full sm:w-auto'
                 onClick={handleConvert}
                 disabled={isConverting}
               >
@@ -185,15 +185,19 @@ const FileConverter = ({
 
           {files.length > 0 && (
             <div className='selected-files mt-4'>
-              <h3 className='text-sm font-medium'>Selected Files:</h3>
-              <ul className='list-disc pl-5'>
-                {files.map((file, index) => (
-                  <li key={index} className='text-xs truncate'>
-                    {file.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
+  <h3 className='text-sm sm:text-base font-medium mb-2 text-green-600'>Selected Files:</h3>
+  <ul className='list-disc md:pl-4  space-y-1'>
+    {files.map((file, index) => (
+      <li
+        key={index}
+        className='text-xs sm:text-sm truncate max-w-full overflow-hidden'
+        title={file.name}
+      >
+        {file.name}
+      </li>
+    ))}
+  </ul>
+</div>
           )}
         </div>
       </div>
