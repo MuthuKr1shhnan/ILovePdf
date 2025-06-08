@@ -112,11 +112,11 @@ const MobileDotDotMenu = () => {
       {/* Mobile menu button */}
       <button
         type='button'
-        className='rounded-md text-gray-700 hover:text-red-600 focus:outline-none focus:ring-red-500'
+        className=' text-black focus:outline-none '
         onClick={() => setMobileMenuOpen(true)}
         aria-label='Open menu'
       >
-        <div className='mt-2 hover:text-red-600 transition-colors'>
+        <div className='mt-2 '>
           <PiDotsNineBold size={36} />
         </div>
       </button>
